@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>drawVotingStatistics</class>
+ <widget class="QDialog" name="drawVotingStatistics">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1107</width>
+    <height>348</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <widget class="QGroupBox" name="placeholder">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>10</y>
+     <width>1071</width>
+     <height>321</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string>Statistics</string>
+   </property>
+   <widget class="QLabel" name="graph">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>30</y>
+      <width>1021</width>
+      <height>271</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>no data to show</string>
+    </property>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
