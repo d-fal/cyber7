@@ -70,6 +70,7 @@ void drawVotingStatistics::updatedrawing(){
     for (int i=1; i<questionPanel::availableChoices+1; ++i){
         //qDebug()<<i<<" - "<<voteBuffer[i];
         paint->drawLine(QPointF(xoffset,heightX-yoffset),QPointF(widthX-xoffset,heightX-yoffset));
+        if(questionPanel::mode==2){
         paint->fillRect(QRectF(QPointF(xoffset+(i-1)*(widthX-xoffset)/(questionPanel::availableChoices),
                                 heightX-yoffset)
                         ,QPointF(xoffset+columnWidth+(i-1)*(widthX-xoffset)/(questionPanel::availableChoices),
@@ -84,6 +85,23 @@ void drawVotingStatistics::updatedrawing(){
                         +QString::number(voteBuffer[i])
                         +"/"+QString::number(totalVoters)+")"
                         );
+        } else{
+            char optX='a'+i-1;
+            paint->fillRect(QRectF(QPointF(xoffset+(i-1)*(widthX-xoffset)/(questionPanel::availableChoices),
+                                    heightX-yoffset)
+                            ,QPointF(xoffset+columnWidth+(i-1)*(widthX-xoffset)/(questionPanel::availableChoices),
+                                     heightX-5-yoffset-0.8*(heightX)*voteBuffer[i-1]/totalVoters))
+                            ,QColor(255,200,120));
+            paint->drawText(QPointF(xoffset+columnWidth/2+(i-1)*(widthX-xoffset)/(questionPanel::availableChoices),
+                                    heightX-yoffset/3),(QChar)optX);
+            paint->drawText(xoffset+(i-1)*(widthX-xoffset)/(questionPanel::availableChoices),
+                                    heightX-20-yoffset-0.8*(heightX)*voteBuffer[i-1]/totalVoters,columnWidth
+                            ,15,Qt::AlignCenter
+                                    ,QString::number(100*voteBuffer[i-1]/totalVoters)+"% ("
+                            +QString::number(voteBuffer[i-1])
+                            +"/"+QString::number(totalVoters)+")"
+                            );
+        }
 
     }
 

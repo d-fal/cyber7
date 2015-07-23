@@ -39,7 +39,7 @@ submittedPeople::submittedPeople(QWidget *parent) :
     win->setGeometry(0,0,screenWidth,screenHeight);
     win->show();
     timer4= new QTimer(this);
-    timer4->start(5000);
+    timer4->start(3000);
     connect(timer4,SIGNAL(timeout()),this,SLOT(nextPage()));
     update();
 }

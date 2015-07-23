@@ -22,7 +22,8 @@ SOURCES += main.cpp\
     drawvotingstatistics.cpp \
     syncdata.cpp \
     networkmanager.cpp \
-    submittedpeople.cpp
+    submittedpeople.cpp \
+    showmessage.cpp
 
 HEADERS  += home.h \
     cserial.h \
@@ -33,7 +34,8 @@ HEADERS  += home.h \
     drawvotingstatistics.h \
     syncdata.h \
     networkmanager.h \
-    submittedpeople.h
+    submittedpeople.h \
+    showmessage.h
 
 FORMS    += home.ui \
     sessionmanagement.ui \

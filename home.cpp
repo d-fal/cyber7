@@ -6,7 +6,7 @@
 #include "questionpanel.h"
 #include "cserial.h"
 #include "database.h"
-
+#include "showmessage.h"
 
 #include <QTimer>
 #include <ctime>
@@ -125,7 +125,7 @@ void home::syncDataWithServer(){
 
     connect(timer3,SIGNAL(timeout()),win,SLOT(close()));
     connect(timer3,SIGNAL(timeout()),timer3,SLOT(stop()));
-    label->setText("Syncyng...");
+    label->setText("Syncing...");
     label->setAlignment(Qt::AlignCenter);
     layout->addWidget(label);
     int screenWidth = QApplication::desktop()->geometry().width();
@@ -202,7 +202,7 @@ void home::showSignalOnUi(int index, QString message){
 
 void home::on_pushButton_clicked(){
 
-    if(!questionPanel::isQuestionSelected & false){
+    if(!questionPanel::isQuestionSelected){
         QMessageBox msgBox;
         msgBox.setText("Error!\nyou are not allowed to start voting now.\n"
                        "you should select a question before start voting...\n"
@@ -475,6 +475,11 @@ void home::on_closeBtn_clicked()
    this->close();
 }
 
+void home::questionUp(){
+    showMessage *show = new showMessage(this);
+    show->display("This message");
+}
+
 void home::masterCommand(int code){
 
 
@@ -482,7 +487,7 @@ void home::masterCommand(int code){
     switch (code) {
     case 0:
         cout<<"Up"<<endl;
-
+        questionUp();
         break;
     case 1:
         cout<<"OK"<<endl;
@@ -516,6 +521,8 @@ void home::masterCommand(int code){
     case 8:
 
         cout<<"send report"<<endl;
+        questionManager();
+
         break;
     case 9:
 

@@ -68,6 +68,7 @@ private slots:
     void on_closeBtn_clicked();
     void activateThisDistro();
     void syncDataWithServer();
+    void questionUp();
 signals:
     void endIt();
     void closeAll();
